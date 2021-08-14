@@ -22,6 +22,7 @@
                 <li><%=link_to 'Create PicStory', new_story_path %></li>
                 <li><%=link_to 'My PicStories', stories_path %></li>
                 <li><%= link_to 'My profile', profile_path(current_user.id) %></li>
+                <li><%=link_to 'Edit profile', edit_user_registration_path %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
               <% else %>  
