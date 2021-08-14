@@ -19,16 +19,26 @@
           <!-- ¡Pending implementation! Should work toggling between sign_in and sign_out -->
           <ul class="dropdown-menu">
             <% if current_user %>
+              <% if current_user.admin == true %>
                 <li><%=link_to 'Create PicStory', new_story_path %></li>
-                <li><%=link_to 'My PicStories', stories_path %></li>
+                <li><%=link_to 'PicStories', stories_path %></li>
+                <li><%= link_to 'My profile', profile_path(current_user.id) %></li>
+                <li><%=link_to 'Edit profile', edit_user_registration_path %></li>
+                <li><%=link_to 'Control panel' %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%=link_to 'Create PicStory', new_story_path %></li>
+                <li><%=link_to 'PicStories', stories_path %></li>
                 <li><%= link_to 'My profile', profile_path(current_user.id) %></li>
                 <li><%=link_to 'Edit profile', edit_user_registration_path %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-              <% else %>  
+              <% end %>
+            <% elsif %>  
                 <li><%= link_to 'Sign in', new_user_session_path %></li>
                 <li><%= link_to 'Sign up', new_user_registration_path %></li>
-              <% end %>
+            <% end %>
           </ul>
         </li>
       </ul>
