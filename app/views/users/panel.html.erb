@@ -7,7 +7,7 @@
         <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Admin</th>
+            <th>Status</th>
             <th></th>
         </tr>
     </thead>
@@ -18,7 +18,7 @@
             <td><%= user.email %></td>
             <td><%= user.admin %></td>
             <td>
-                <%= link_to 'Change status', change_path(user.id), method: :patch %>
+                <%= button_to 'Change status', change_path(user.id), method: :patch %>
             </td>
             </tr>
         <% end %>
